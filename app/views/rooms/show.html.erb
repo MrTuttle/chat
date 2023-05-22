@@ -1,18 +1,18 @@
 <p style="color: green" id="notice"><%= notice %></p>
 
-<p>
-<strong>Name: </strong>
-<%= @room.name %>
-</p>
-
+<%= turbo_frame_tag "room" do %>
+  <p>
+    <strong>Name: </strong>
+    <%= @room.name %>
+  </p>
   <p>
     <%= link_to "Edit this room", edit_room_path(@room) %> |
-    <%= link_to "Back to rooms", rooms_path %>
+    <%= link_to "Back to rooms", rooms_path, "data-turbo-frame": "_top" %>
   </p>
+<% end %>
 
 <div id="articles">
-<%= render @room.articles %>
+  <%= render @room.articles %>
 </div>
 <%= link_to "New article", new_room_article_path(@room) %>
-
-  <%#= button_to "Destroy this room", @room, method: :delete %>
+<%#= button_to "Destroy this room", @room, method: :delete %>
