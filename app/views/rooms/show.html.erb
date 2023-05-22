@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green" id="notice"><%= notice %></p>
 
-<%= render @room %>
+<p>
+<strong>Name: </strong>
+<%= @room.name %>
+</p>
 
-<div>
-  <%= link_to "Edit this room", edit_room_path(@room) %> |
-  <%= link_to "Back to rooms", rooms_path %>
+  <p>
+    <%= link_to "Edit this room", edit_room_path(@room) %> |
+    <%= link_to "Back to rooms", rooms_path %>
+  </p>
 
-  <%= button_to "Destroy this room", @room, method: :delete %>
+<div id="articles">
+<%= render @room.articles %>
 </div>
+<%= link_to "New article", new_room_article_path(@room) %>
+
+  <%#= button_to "Destroy this room", @room, method: :delete %>
