@@ -1,5 +1,6 @@
 <p style="color: green" id="notice"><%= notice %></p>
 
+<%= turbo_stream_from @room %>
 <%= turbo_frame_tag "room" do %>
   <p>
     <strong>Name: </strong>
@@ -14,5 +15,6 @@
 <div id="articles">
   <%= render @room.articles %>
 </div>
-<%= link_to "New article", new_room_article_path(@room) %>
+<%#= link_to "New article", new_room_article_path(@room) %>
+<%= turbo_frame_tag "new_article", src: new_room_article_path(@room), target: "_top" %>
 <%#= button_to "Destroy this room", @room, method: :delete %>
