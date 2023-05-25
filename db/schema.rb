@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_22_180037) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_25_181247) do
   create_table "articles", force: :cascade do |t|
     t.integer "room_id", null: false
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "marked", default: true
     t.index ["room_id"], name: "index_articles_on_room_id"
   end
 
@@ -31,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_180037) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "check", default: false
   end
 
   add_foreign_key "articles", "rooms"
