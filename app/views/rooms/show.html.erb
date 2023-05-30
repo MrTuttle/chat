@@ -5,6 +5,10 @@
     <strong>Name: </strong>
     <%= @room.name %>
   </p>
+    <p>
+    <strong>check ?: </strong>
+    <%= @room.check %>
+  </p>
   <p>
     <%= link_to "Edit this room", edit_room_path(@room) %> |
     <%= link_to "Back to rooms", rooms_path, "data-turbo-frame": "_top" %>

@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_room, only: %i[new create]
 
+  def top
+    @articles = Article.order(:start).where(marked: true)
+  end
+
   def new
     @article = @room.articles.new
   end
@@ -21,6 +25,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:content)
+    params.require(:article).permit(:content, :marked)
   end
 end

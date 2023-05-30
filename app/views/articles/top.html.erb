@@ -1,0 +1,11 @@
+<h1 class="top"></h1>
+
+<div id="collecteds" class="cards">
+  <% @articles.each do |article| %>
+        <div class="card no_link">
+      <%= link_to article do %>
+          <%= render article %>
+      <% end %>
+        </div>
+  <% end %>
+</div>

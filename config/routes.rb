@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :articles
   end
+
+  resources :articles do
+    collection do
+      get :top
+    end
+  end
 end

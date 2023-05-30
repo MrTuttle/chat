@@ -4,6 +4,7 @@
   <%= form_with(model: [ @article.room, @article ]) do | form | %>
     <div class="field">
       <%= form.text_field :content %>
+      <%= form.check_box :marked %>
       <%= form.submit "send" %>
     </div>
   <% end %>
