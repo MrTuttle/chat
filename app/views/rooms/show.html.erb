@@ -1,6 +1,7 @@
 <p style="color: green" id="notice"><%= notice %></p>
 <h1 class="show">Show</h1>
 
+<%= turbo_stream_from @room %>
 <%= turbo_frame_tag "room" do %>
   <p>
     <strong>Name: </strong>

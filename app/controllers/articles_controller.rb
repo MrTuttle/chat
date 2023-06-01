@@ -12,9 +12,9 @@ class ArticlesController < ApplicationController
   def create
     @article = @room.articles.create!(article_params)
 
-    respond_to do |format|
-      #format.turbo_stream
-      format.html { redirect_to @room }
+    respond_to do | format |
+      format.turbo_stream
+      format.html {redirect_to @room}
     end
   end
 
