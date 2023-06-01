@@ -1,26 +1,32 @@
 <p style="color: green" id="notice"><%= notice %></p>
 <h1 class="show">Show</h1>
+<p>Rooms show with turbo frames and turbo stream</p>
+<ul>
+  <li>turbo_frame_tag "room"</li>
+  <li>turbo_frame_tag "new_article"</li>
+  <li>turbo_stream_from @room</li>
+</ul>
 
 <%= turbo_stream_from @room %>
 <%= turbo_frame_tag "room" do %>
-  <p>
-    <strong>Name: </strong>
-    <%= @room.name %>
-  </p>
-    <p>
-    <strong>check ??: </strong>
-    <%= @room.check %>
-    <%= render "checker", room: @room %>
-  </p>
+<%= render @room %>
+<small>turbo_frame_tag "room"</small>
+
   <p>
     <%= link_to "Edit this room", edit_room_path(@room) %> |
     <%= link_to "Back to rooms", rooms_path, "data-turbo-frame": "_top" %>
+    <small><strong>link to :</strong> rooms_path, "data-turbo-frame": "_top"</small>
   </p>
 <% end %>
 
 <div id="articles">
   <%= render @room.articles %>
 </div>
+
+<div>
+<br>
 <%#= link_to "New article", new_room_article_path(@room) %>
-<%= turbo_frame_tag "new_article", src: new_room_article_path(@room), target: "_top" %>
+  <%= turbo_frame_tag "new_article", src: new_room_article_path(@room), target: "_top" %>
+  <small>turbo_frame_tag "new_article", src: new_room_article_path(@room), target: "_top"</small>
+</div>
 <%#= button_to "Destroy this room", @room, method: :delete %>
