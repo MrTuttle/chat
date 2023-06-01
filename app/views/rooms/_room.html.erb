@@ -8,3 +8,12 @@
   </p>
 
 </div>
+<%= turbo_frame_tag "check_room", target: "_top" do %>
+  <%= form_with(model: room,
+    data: { controller: "toggle_check", action: "turbo:submit-end->toggle_check#toggle"}) do | form | %>
+    <div class="field">
+      <%= form.check_box :check %>
+      <%= form.submit "send" %>
+    </div>
+  <% end %>
+<% end %>

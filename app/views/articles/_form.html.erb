@@ -1,0 +1,7 @@
+  <%= form_with(model: [ article.room, article ],
+    data: { controller: "reset_form", action: "turbo:submit-end->reset_form#reset"}) do | form | %>
+    <div class="field">
+      <%= form.text_field :content %>
+      <%= form.submit "send" %>
+    </div>
+  <% end %>

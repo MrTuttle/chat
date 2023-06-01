@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root to: 'rooms#index'
 
   resources :rooms do
+    collection do
+      get :toprooms
+    end
     resources :articles
   end
 

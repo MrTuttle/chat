@@ -1,6 +1,12 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[show edit update destroy]
 
+
+  def toprooms
+      @rooms = Room.order(:start).where(check: true)
+
+  end
+
   # GET /rooms or /rooms.json
   def index
     @rooms = Room.all
@@ -23,12 +29,12 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.save
-        format.turbo_stream
+        # format.turbo_stream
 
         format.html { redirect_to room_url(@room), notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else
-        format.turbo_stream
+        # format.turbo_stream
 
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @room.errors, status: :unprocessable_entity }
@@ -40,6 +46,7 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
+        # format.turbo_stream
         format.html { redirect_to room_url(@room), notice: 'Room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
