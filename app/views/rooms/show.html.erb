@@ -1,4 +1,5 @@
 <p style="color: green" id="notice"><%= notice %></p>
+<h1 class="show">Show</h1>
 
 <%= turbo_frame_tag "room" do %>
   <p>
@@ -6,8 +7,9 @@
     <%= @room.name %>
   </p>
     <p>
-    <strong>check ?: </strong>
+    <strong>check ??: </strong>
     <%= @room.check %>
+    <%= render "checker", room: @room %>
   </p>
   <p>
     <%= link_to "Edit this room", edit_room_path(@room) %> |

@@ -1,5 +1,10 @@
 <p id="<%= dom_id article %>">
   <strong>Marked ? : </strong><%= article.marked %>
+    <%= form_with(model: [ article.room, article ]) do | form | %>
+
+        <%= form.check_box :marked %>
+        <% end %>
+
   <%= article.created_at.to_s(:short) %>: <%= article.content %>
 </p>
 <p><%#= link_to, "top articles", top_articles_path %></p>
